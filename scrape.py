@@ -1,10 +1,10 @@
 from urllib.parse import urlparse, parse_qs
-import requests
+from curl_cffi import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 import datetime as dt
 
-headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"}
+headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"}
 
 def match_query(query: str, title: str, exclude_terms: list) -> bool:
     # Convert both to lowercase and split the query into individual words/tokens
@@ -136,7 +136,7 @@ def main(brand, model, exclude_terms):
 
     print(df)
 
-    filename = f"{brand.lower()} {model.lower()}.csv".replace(" ", "_")
+    filename = f"data/{brand.lower()} {model.lower()}.csv".replace(" ", "_")
 
     df.to_csv(filename, index=False)
 

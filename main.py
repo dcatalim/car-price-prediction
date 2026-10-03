@@ -4,12 +4,12 @@ import scrape
 
 
 def get_csv_filename(brand: str, model: str) -> Path:
-    return Path(f"{brand.lower()} {model.lower()}.csv".replace(" ", "_"))
+    return Path(f"data/{brand.lower()} {model.lower()}.csv".replace(" ", "_"))
 
 if __name__ == "__main__":
-    brand = "volkswagen-vw"
-    model = "golf variant 1.9"
-    exclude_terms = []
+    brand = "ford"
+    model = "focus st"
+    exclude_terms = ["line", "sw", "wagon", "1.0", "1.5", "2.3"]
 
     csv_path = get_csv_filename(brand, model)
 
